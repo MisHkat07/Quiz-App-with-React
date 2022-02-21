@@ -2,10 +2,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
 :root {
-  --bodyBackground: #cbfdff;
+  --bodyBackground: #eafbff;
   --successGreen: #07cf61;
   --dangerRed: #ffc0c7;
-  --questionBG: #e4e8ee;
+  --questionBG: #f1eaff;
   --fontPrimary: #002333;
   --active: #2dbf64;
 }
