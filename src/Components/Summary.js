@@ -1,7 +1,7 @@
 import classes from '../styles/Summary.module.css';
 import image from '../Assets/success.png';
 
-export default function Summary() {
+export default function Summary({score, noq}) {
   return (
     <>
      <div className={classes.summary}>
@@ -9,7 +9,7 @@ export default function Summary() {
          
             <p className={classes.score}>
               Your score is <br />
-              5 out of 10
+              {score} out of {noq * 5}
             </p>
           </div>
           <div className={classes.badge}>

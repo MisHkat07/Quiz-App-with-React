@@ -74,7 +74,7 @@
 }
 
 .progress::after {
-  content: "";
+  content: '';
   height: 12px;
   width: 12px;
   position: absolute;
@@ -89,7 +89,6 @@
 .tooltip {
   position: absolute;
   top: -70px;
-  left: calc(70% - 65px);
   width: 130px;
   background-color: var(--fontPrimary);
   color: #fff;
@@ -101,7 +100,7 @@
 }
 
 .tooltip::after {
-  content: "";
+  content: '';
   width: 15px;
   height: 15px;
   background-color: var(--fontPrimary);
