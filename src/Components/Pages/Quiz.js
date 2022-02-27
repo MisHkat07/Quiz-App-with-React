@@ -1,7 +1,10 @@
 import Answers from '../Answers';
 import ProgressBar from '../ProgressBar';
 import MiniPlayer from '../MiniPlayer';
-import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import {
+  useHistory,
+  useParams,
+} from 'react-router-dom/cjs/react-router-dom.min';
 import { useEffect, useReducer, useState } from 'react';
 import useQuestions from '../../Hooks/useQuestion';
 import _ from 'lodash';
@@ -37,6 +40,9 @@ export default function Quiz() {
   const [qna, dispatch] = useReducer(reducer, initialState);
   const { currentUser } = useAuth();
   const history = useHistory();
+  const { location } = history;
+  const { state } = location;
+  const { videoTitle } = state;
 
   useEffect(() => {
     dispatch({
@@ -71,19 +77,16 @@ export default function Quiz() {
     const resultRef = ref(db, `result/${uid}`);
 
     await set(resultRef, {
-      [id]: qna
+      [id]: qna,
     });
 
     history.push({
       pathname: `/result/${id}`,
       state: {
         qna,
-      }
-
+      },
     });
-  
   }
-
 
   const percentage =
     questions.length > 0 ? ((currentQuestion + 1) / questions.length) * 100 : 0;
@@ -105,8 +108,9 @@ export default function Quiz() {
             submit={submit}
             next={nextQuestion}
             prev={prevQuestion}
-            progress={percentage} />
-          <MiniPlayer id={ id} title={qna[currentQuestion].title} />
+            progress={percentage}
+          />
+          <MiniPlayer id={id} title={videoTitle } />
         </>
       )}
     </>
